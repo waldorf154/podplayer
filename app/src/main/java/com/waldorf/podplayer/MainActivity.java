@@ -5,14 +5,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+import com.waldorf.podplayer.dummy.DummyContent;
 import com.waldorf.podplayer.sections.LatestSection;
 import com.waldorf.podplayer.sections.PopularSection;
 import com.waldorf.podplayer.sections.SearchSection;
 import com.waldorf.podplayer.sections.SubscribedSection;
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ItemFragment.OnListFragmentInteractionListener {
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Fragment mSelectedFragment;
@@ -27,6 +30,10 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+//        LinearLayoutManager mLinearLayoutmanager = new LinearLayoutManager(this);
+//        RecyclerView mDrawerList = (RecyclerView) findViewById(R.id.item_list);
+//        mDrawerList.setLayoutManager(mLinearLayoutmanager);
     }
 
     @Override
@@ -47,11 +54,17 @@ public class MainActivity extends ActionBarActivity
                 return new SubscribedSection.SubscribedFragment();
             case 2:
                 return new LatestSection.LatestFragment();
+//            case 3:
+//                return new PopularSection.PopularFragment();
             case 3:
-                return new PopularSection.PopularFragment();
+                return new ItemFragment();
             default:
                 throw new IllegalArgumentException("Invalid Section position: " + position);
         }
     }
 
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
 }
