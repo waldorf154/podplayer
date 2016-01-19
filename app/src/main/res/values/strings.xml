@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PodPlayer</string>
+
+    <string name="title_search">Search</string>
+    <string name="title_subscribed">Subscribed</string>
+    <string name="title_latest">Latest</string>
+    <string name="title_popular">Popular</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
